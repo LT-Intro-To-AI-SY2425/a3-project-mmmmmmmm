@@ -245,6 +245,11 @@ pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
     (str.split("when was % made"), year_by_title),
     (str.split("in what movies did % appear"), title_by_actor),
     (["bye"], bye_action),
+    (str.split("what movies featured both % and %"), title_by_multiple_actors),
+    (str.split("what movies featured both % and % and %"), title_by_multiple_actors),
+    (str.split("what movies had the same director as %"), title_by_director),
+    (str.split("what movies had the same actors as %"), actors_by_title),
+    (str.split("what movies had % in the title"), title_by_actor)
 ]
 
 
