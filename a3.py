@@ -214,14 +214,6 @@ def title_by_actor(matches: List[str]) -> List[str]:
     return result if result else ["No movies found for this actor"]
 
 def title_by_multiple_actors(matches: List[str]) -> List[str]:
-    """Finds movies where all specified actors appeared together
-
-    Args:
-        matches - a list of actor names
-
-    Returns:
-        a list of movie titles in which all specified actors appeared
-    """
     actors = [actor.lower() for actor in matches]
     result = []
 
