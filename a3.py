@@ -18,7 +18,7 @@
 # bye
 
 #  Include the movie database, named movie_db
-from movies import movie_db
+from movie import movie_db
 from match import match
 from typing import List, Tuple, Callable, Any
 
@@ -213,6 +213,23 @@ def title_by_actor(matches: List[str]) -> List[str]:
             result.append(get_title(movie))
     return result if result else ["No movies found for this actor"]
 
+def title_by_multiple_actors(matches: List[str]) -> List[str]:
+    """Finds movies where all specified actors appeared together
+
+    Args:
+        matches - a list of actor names
+
+    Returns:
+        a list of movie titles in which all specified actors appeared
+    """
+    actors = [actor.lower() for actor in matches]
+    result = []
+
+    for movie in movie_db:
+        movie_actors = [actor.lower() for actor in get_actors(movie)]
+        if all(actor in movie_actors for actor in actors):
+            result.append(get_title(movie))
+    return result if result else ["No movies found with these actors"]
 
 
 # dummy argument is ignored and doesn't matter
